@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #1a1a1a; /* Dark text for light mode */
+  --color-secondary: #ffffff; /* White background */
+  --color-accent: #FF9933; /* India Saffron */
+  --color-accent-light: #ffb366;
+  --color-emerald: #138808; /* India Green */
+  --color-emerald-light: #18ab0a;
+  --color-text-main: #1a1a1a;
+  --color-glass-bg: rgba(255, 255, 255, 0.85);
+  --color-glass-border: rgba(255, 255, 255, 0.6);
+}
+
+.dark {
+  --color-primary: #ffffff; /* White text for dark mode */
+  --color-secondary: #0a1008; /* Very dark green/black background */
+  --color-text-main: #ffffff;
+  --color-glass-bg: rgba(10, 16, 8, 0.85);
+  --color-glass-border: rgba(255, 153, 51, 0.2); /* Saffron tint border */
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-secondary);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark {
+  background-image: 
+    radial-gradient(circle at 10% 0%, rgba(255, 153, 51, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(19, 136, 8, 0.08) 0%, transparent 40%);
+}
+
+body:not(.dark) {
+  background-image: 
+    radial-gradient(circle at 10% 0%, rgba(255, 153, 51, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(19, 136, 8, 0.12) 0%, transparent 40%);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Smooth custom scrollbar (styled with tricolor hints) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF9933, #ffffff, #138808);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ffb366, #e2e8f0, #18ab0a);
+}
