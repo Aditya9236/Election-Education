@@ -8,7 +8,7 @@ export default function GlossaryFlashcards() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/glossary')
+    axios.get('/api/glossary')
       .then(res => {
         setTerms(res.data);
         setLoading(false);

@@ -19,7 +19,7 @@ export default function QuizDashboard() {
   const checkBadge = useProgressStore(state => state.checkBadge);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/quiz')
+    axios.get('/api/quiz')
       .then(res => setQuestions(res.data))
       .catch(err => console.error(err));
   }, []);

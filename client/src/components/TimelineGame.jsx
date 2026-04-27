@@ -46,7 +46,7 @@ export default function TimelineGame() {
   );
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/timeline')
+    axios.get('/api/timeline')
       .then(res => {
         setPhases(res.data);
         const scrambled = [...res.data].sort(() => Math.random() - 0.5);

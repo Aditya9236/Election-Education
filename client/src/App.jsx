@@ -11,7 +11,7 @@ import { MessageSquare, X, Send, BookOpen, UserCheck, ShieldCheck, Moon, Sun } f
 import Lenis from 'lenis';
 
 // Socket connection
-const socket = io('http://localhost:5000');
+const socket = io();
 
 function Home() {
   return (
